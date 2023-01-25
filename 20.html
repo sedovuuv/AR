@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PAPEERBALLOON STUDIOS</title>
+    <meta name="description" content="JavaScript - A-Frame School" />
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script>
+      // Registering component in foo-component.js
+      AFRAME.registerComponent("blood", {
+        schema: {
+          blood_type: { type: "string", default: "O-type" },
+          oxygen_level: { type: "string", default: "normal" },
+        },
+        init: function () {
+          console.log(this.data.oxygen_level + " " + this.data.blood_type);
+          console.log(this.el);
+          let Julian = document.querySelector("#Julian");
+          console.log(Julian);
+          
+          //Adding event listener
+
+          let data = this.data;
+
+          this.el.addEventListener("click", function (obj) {
+            console.log(obj);
+            //get the component that we want to chage
+            let oldPosition = obj.srcElement.getAttribute("position");
+            console.log(oldPosition);
+
+            let newY = oldPosition.y + 0.2;
+
+            obj.srcElement.setAttribute(
+              "position",
+              oldPosition.x + " " + newY + " -3"
+            );
+            
+            obj.srcElement.setAttribute("blood","blood_type:C-type");
+         
+            
+          });
+        },
+        update: function(oldData) {
+          console.log("======= UPDATED =====");
+          console.log(oldData.blood_type);
+          console.log(this.data.blood_type);
+        },
+        tick: function() {
+          this.el.getObject3D("mesh").rotation.y += 0.01;
+        },
+      });
+    </script>
+  </head>
+  <body>
+    <a-scene school-playground>
+      <a-camera><a-cursor></a-cursor></a-camera>
+      <a-entity
+        id="George"
+        blood="blood_type:A-type;oxygen_level:high"
+        position="-2 0.5 -3"
+        geometry="box"
+        material="color:red"
+      ></a-entity>
+      <a-entity
+        id="Julian"
+        blood="blood_type:AB-type;oxygen_level:low"
+        position="2 0.5 -3"
+        geometry="box"
+        material="color:blue"
+      ></a-entity>
+    </a-scene>
+  </body>
+</html>

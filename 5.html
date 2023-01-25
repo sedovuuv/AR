@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>5. Встроенное видео</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+   
+	<script src='js/three.js'></script>
+	
+	<script src="scripts/tools/artoolkit.min.js"></script>
+	<script src="scripts/tools/artoolkit.api.js"></script>
+	
+	<script src="scripts/threex/threex-artoolkitsource.js"></script>
+	<script src="scripts/threex/threex-artoolkitcontext.js"></script>
+	<script src="scripts/threex/threex-arbasecontrols.js"></script>
+	<script src="scripts/threex/threex-armarkercontrols.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+    <video id="video" autoplay loop crossOrigin="anonymous" webkit-playsinline style="display:none">
+	    <source src="video/kittens.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+    </video>
+
+    <script src="scripts/5.js"></script>
+
+</body>
+</html>
